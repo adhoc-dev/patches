@@ -218,3 +218,10 @@ class IrModel(models.Model):
                 Model._patch_method('fields_view_get', patch_fields_view_get())
 
         return super(IrModel, self)._register_hook()
+
+    @api.multi
+    def toggle_smart_search(self):
+        """ Inverse the value of the field ``add_smart_search`` on the records
+        in ``self``. """
+        for record in self:
+            record.add_smart_search = not record.add_smart_search
