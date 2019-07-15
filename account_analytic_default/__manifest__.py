@@ -3,7 +3,7 @@
 
 {
     'name': 'Account Analytic Defaults',
-    'version': '11.0.1.2.0',
+    'version': '12.0.1.0.0',
     'category': 'Accounting',
     'description': """
 Set default values for your analytic accounts.
@@ -24,5 +24,5 @@ Allows to automatically select analytic accounts based on criterions:
         'views/account_analytic_default_view.xml',
         'views/res_config_settings_views.xml',
     ],
-    'installable': True,
+    'installable': False,
 }
