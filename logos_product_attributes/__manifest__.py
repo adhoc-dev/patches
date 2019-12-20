@@ -1,6 +1,6 @@
 {
     'name': 'Logos Product Attributes',
-    'version': '11.0.1.0.0',
+    'version': '12.0.1.0.0',
     'category': 'Accounting',
     'sequence': 14,
     'summary': '',

@@ -14,28 +14,32 @@
 Logos Product Attributes
 ========================
 
-#. This module adds atributtes to product.
+* This module adds three new fields on product tree views and filters, which are useful for bookstore keeping. These are:
+
+    * Author
+    * Editorial
+    * Collection
 
 Installation
 ============
 
 To install this module, you need to:
 
-#. Only need to install the module
+* Only need to install the module
 
 Configuration
 =============
 
 To configure this module, you need to:
 
-#. No configuration needed.
+* No configuration needed.
 
 Usage
 =====
 
 To use this module, you need to:
 
-#. Just use it.
+* Create three product template attributes named "Autor", "Editorial" and "Colección". These attributes will be mapped to the new fields.
 
 .. image:: https://odoo-community.org/website/image/ir.attachment/5784_f2813bd/datas
    :alt: Try me on Runbot

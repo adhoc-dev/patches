@@ -30,7 +30,7 @@ class ProductTemplate(models.Model):
         inverse='_inverse_attributes',
         store=True,
         domain=[('attribute_id.name', '=', 'Colección')],
-        string='Coleccion',
+        string='Colección',
     )
 
     @api.multi
@@ -50,16 +50,16 @@ class ProductTemplate(models.Model):
             [('name', '=', attribute_name)], limit=1)
         if not attribute:
             raise Warning(_('Attribute %s not found'), (attribute.name))
-        attibute_line = self.env['product.attribute.line'].search(
+        attribute_line = self.env['product.template.attribute.line'].search(
             [('attribute_id', '=', attribute.id),
              ('product_tmpl_id', '=', self.id)], limit=1)
         if not field_value:
-            if attibute_line:
-                attibute_line.value_ids = [(5, 0, 0)]
-        elif attibute_line:
-            attibute_line.value_ids = [(6, 0, [field_value.id])]
+            if attribute_line:
+                attribute_line.value_ids = [(5, 0, 0)]
+        elif attribute_line:
+            attribute_line.value_ids = [(6, 0, [field_value.id])]
         else:
-            attibute_line.create({
+            attribute_line.create({
                 'product_tmpl_id': self.id,
                 'attribute_id': attribute.id,
                 'value_ids': [(4, field_value.id)]
@@ -71,7 +71,7 @@ class ProductTemplate(models.Model):
     )
     def _compute_attributes(self):
         def get_value(rec, attribute_name):
-            lines = rec.env['product.attribute.line'].search([
+            lines = rec.env['product.template.attribute.line'].search([
                 ('attribute_id.name', '=', attribute_name),
                 ('product_tmpl_id', '=', rec.id)], limit=1)
             return lines.value_ids and lines.value_ids[0] or False
